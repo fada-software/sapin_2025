@@ -12,6 +12,8 @@
 //==============================================================================
 #include <Adafruit_NeoPixel.h>
 
+// #define PROTO_2025                                               //!< Uncomment this line for PROTO 2025 configuration values
+
 #define NUM_LEDS                        77                          //!< Total number of leds
 #define NB_LED_BASE                     21                          //!< Number of leds of base ring
 #define NB_LED_ETAGE_1                  18                          //!< Number of leds of first ring
@@ -26,12 +28,23 @@
 #define PIN_LUM_BUTTON                  21                          //!< Pin ESP32C3 super mini sapin 2025
 #define PIN_LED_NUM                     7                           //!< Pin ESP32C3 super mini sapin 2025
 
+#ifdef PROTO_2025
+// Values for PROTO 2025
+#define LUM_BRIGHTNESS_MIN_VAL          ((unsigned char) 10)        //!< Brightness minimum value
+#define LUM_BRIGHTNESS_MAX_VAL          ((unsigned char) 60)        //!< Brightness minimum value
+#define LUM_BRIGHTNESS_LOW_VALUE        LUM_BRIGHTNESS_MIN_VAL      //!< Brightness low value
+#define LUM_BRIGHTNESS_MEDIUM_VALUE     ((unsigned char) 25)        //!< Brightness medium value
+#define LUM_BRIGHTNESS_HIGH_VALUE       LUM_BRIGHTNESS_MAX_VAL      //!< Brightness high value
+#define LUM_AUTO_MODE_ADC_THRESHOLD     ((unsigned int) 2500)       //!< ADC threshold //1500 for nex, 2500 before
+#else
+// Values for RELEASE 2025
 #define LUM_BRIGHTNESS_MIN_VAL          ((unsigned char) 14)        //!< Brightness minimum value
 #define LUM_BRIGHTNESS_MAX_VAL          ((unsigned char) 60)        //!< Brightness minimum value
 #define LUM_BRIGHTNESS_LOW_VALUE        LUM_BRIGHTNESS_MIN_VAL      //!< Brightness low value
 #define LUM_BRIGHTNESS_MEDIUM_VALUE     ((unsigned char) 30)        //!< Brightness medium value
 #define LUM_BRIGHTNESS_HIGH_VALUE       LUM_BRIGHTNESS_MAX_VAL      //!< Brightness high value
 #define LUM_AUTO_MODE_ADC_THRESHOLD     ((unsigned int) 1500)       //!< ADC threshold //1500 for nex, 2500 before
+#endif
 
 #define PROGRAM_DURATION_SEC            8                           //!< Program time in sec
 #define PROGRAM_HOLD_FOR_AUTO_MSEC      1000                        //!< Mode button hold time (in ms) to switch to auto on a program
