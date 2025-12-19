@@ -1,13 +1,13 @@
 //==============================================================================
 //Projet : sapin de noel 2025 avec 77 LED WS2812B
-//Date: 28/11/2025
+//Date: 19/12/2025
 //Author: fada-software
 //IDE : Arduino V2.3.6
-//Board : package ESP32 3.3.0 by Espressif, choose "ESP32C3 Dev Module"
+//Board : package ESP32 3.3.3 by Espressif, choose "ESP32C3 Dev Module"
 //USB CDC On Boot : Enabled
 //JTAG Adapter : Integrated USB JTAG
 //Partition scheme : Default 4MB with spiffs
-//Library to install in IDE : Adafruit Neopixel 1.15.1
+//Library to install in IDE : Adafruit Neopixel 1.15.2
 //couleur hue : https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library-use
 //==============================================================================
 #include <Adafruit_NeoPixel.h>
@@ -304,10 +304,10 @@ void program_execution()
     //########################  points jaunes qui flash sur fond violet ###################################
     if (SAPIN_MainContext.program == 1) {
         for(int i = 0; i < NUM_LEDS; i++) {
-            leds.setPixelColor(i, leds.ColorHSV(175*256, 255, 200)); //violet pas trop fort
+            leds.setPixelColor(i, leds.ColorHSV(194*256, 255, 180)); //violet pas trop fort
         }
         for(int i = 0; i < 10; i++) {   //10 LED au hasard
-            leds.setPixelColor(random(NUM_LEDS), leds.ColorHSV(42*256, 255, 255)); //jaune
+            leds.setPixelColor(random(NUM_LEDS), leds.ColorHSV(33*256, 255, 255)); //jaune
         }
         leds.show();
         vTaskDelay(50);
